@@ -22,6 +22,7 @@
   <a class="barre-logo" href="#haut" aria-label="Renaissance, retour en haut"><img src="images/logo-petit.webp" alt="Renaissance" width="400" height="267"></a>
   <nav class="barre-liens" aria-label="Sections">
     <a href="#rapport">Rapport</a>
+    <a href="#bd">La BD</a>
     <a href="#radio">Transmissions</a>
     <a href="#mur">Le Mur</a>
     <a href="#voies">Voies</a>
@@ -99,10 +100,47 @@
     </ol>
   </section>
 
-  <!-- 2. Transmissions interceptées : un vrai poste à régler -->
+  <!-- 2. Le dossier illustré : la BD du lore, lisible dans le site -->
+  <section class="section" id="bd">
+    <div class="bd-tete">
+      <div class="titre-section">
+        <p class="rubrique"><span>02</span>Le dossier illustré</p>
+        <h2>L'Héritage du 38ème Parallèle</h2>
+        <p class="texte">Le lore de Renaissance se lit en bande dessinée : dix planches, quarante illustrations et soixante séquences parlées en français, de l'impact de 1945 au choix de la première saison.</p>
+      </div>
+      <div class="bd-actions">
+        <button class="bouton bouton-clair bouton-grand" type="button" data-planche="">Lire la BD</button>
+        <p class="bd-aide">Espace ou flèches pour avancer · lecture automatique avec les voix</p>
+      </div>
+    </div>
+    <ol class="planches" id="planches">
+      <li><button type="button" data-planche="1"><img src="images/bd/planche-01.webp" alt="" loading="lazy" width="640" height="800"><span class="planche-num">Planche 01 · 1945</span><span class="planche-titre">La pierre du ciel</span></button></li>
+      <li><button type="button" data-planche="2"><img src="images/bd/planche-02.webp" alt="" loading="lazy" width="640" height="800"><span class="planche-num">Planche 02 · 1962–1978</span><span class="planche-titre">Le Bunker 68</span></button></li>
+      <li><button type="button" data-planche="3"><img src="images/bd/planche-03.webp" alt="" loading="lazy" width="640" height="800"><span class="planche-num">Planche 03 · 1995</span><span class="planche-titre">Le Directoire</span></button></li>
+      <li><button type="button" data-planche="4"><img src="images/bd/planche-04.webp" alt="" loading="lazy" width="640" height="800"><span class="planche-num">Planche 04 · 2021–2022</span><span class="planche-titre">La fracture</span></button></li>
+      <li><button type="button" data-planche="5"><img src="images/bd/planche-05.webp" alt="" loading="lazy" width="640" height="800"><span class="planche-num">Planche 05 · Au sud</span><span class="planche-titre">Le Sud</span></button></li>
+      <li><button type="button" data-planche="6"><img src="images/bd/planche-06.webp" alt="" loading="lazy" width="640" height="800"><span class="planche-num">Planche 06 · Au nord</span><span class="planche-titre">Le Nord</span></button></li>
+      <li><button type="button" data-planche="7"><img src="images/bd/planche-07.webp" alt="" loading="lazy" width="640" height="800"><span class="planche-num">Planche 07 · L'anomalie</span><span class="planche-titre">Les Éveillés</span></button></li>
+      <li><button type="button" data-planche="8"><img src="images/bd/planche-08.webp" alt="" loading="lazy" width="640" height="800"><span class="planche-num">Planche 08 · Les pistes</span><span class="planche-titre">L'enquête</span></button></li>
+      <li><button type="button" data-planche="9"><img src="images/bd/planche-09.webp" alt="" loading="lazy" width="640" height="800"><span class="planche-num">Planche 09 · Les preuves</span><span class="planche-titre">Le Dossier Noir</span></button></li>
+      <li><button type="button" data-planche="10"><img src="images/bd/planche-10.webp" alt="" loading="lazy" width="640" height="800"><span class="planche-num">Planche 10 · Épilogue</span><span class="planche-titre">Trois avenirs</span></button></li>
+    </ol>
+  </section>
+
+  <!-- Lecteur de la BD, plein écran -->
+  <dialog class="lecteur" id="lecteur" aria-label="Lecture de la BD L'Héritage du 38ème Parallèle">
+    <div class="lecteur-barre">
+      <p class="lecteur-titre">L'Héritage du 38ème Parallèle</p>
+      <a class="lecteur-lien" data-lien="bd" href="#">Ouvrir dans un onglet ↗</a>
+      <button class="lecteur-fermer" type="button" id="fermer-lecteur">Fermer ✕</button>
+    </div>
+    <iframe id="cadre-bd" title="Bande dessinée L'Héritage du 38ème Parallèle" allow="autoplay; fullscreen"></iframe>
+  </dialog>
+
+  <!-- 3. Transmissions interceptées : un vrai poste à régler -->
   <section class="section" id="radio">
     <div class="titre-section">
-      <p class="rubrique"><span>02</span>Transmissions interceptées</p>
+      <p class="rubrique"><span>03</span>Transmissions interceptées</p>
       <h2>La nuit, près du Mur,<br>la radio capte des voix.</h2>
       <p class="texte">Sept signaux ont été relevés sur la bande FM. Allumez le poste et cherchez-les.</p>
     </div>
@@ -144,12 +182,12 @@
     </div>
   </section>
 
-  <!-- 3. Le Mur : la page elle-même est coupée en deux -->
+  <!-- 4. Le Mur : la page elle-même est coupée en deux -->
   <section class="mur" id="mur">
     <div class="mur-nord">
       <img src="images/chiliad-jour.webp" alt="Cristaux violets sur les pentes du Chiliad" loading="lazy" width="2000" height="1151">
       <div class="mur-nord-texte">
-        <p class="rubrique"><span>03</span>Au nord du Mur</p>
+        <p class="rubrique"><span>04</span>Au nord du Mur</p>
         <h2>Le Nord</h2>
         <p>Pas de police, pas de loi. Des ruines, des portraits de disparus et, au sommet du Chiliad, la pierre qui continue de pousser.</p>
         <p class="interdit">Accès interdit</p>
@@ -162,7 +200,7 @@
 
     <div class="mur-sud">
       <div class="mur-sud-tete">
-        <p class="rubrique"><span>03</span>Au sud du Mur</p>
+        <p class="rubrique"><span>04</span>Au sud du Mur</p>
         <h2>Le Sud. C'est ici que vous jouez.</h2>
         <p class="texte">Néons, commerces et voitures de luxe : l'illusion du rêve américain. Une ville complète, pensée pour le roleplay.</p>
       </div>
@@ -177,10 +215,10 @@
     </div>
   </section>
 
-  <!-- 4. Choisir sa voie -->
+  <!-- 5. Choisir sa voie -->
   <section class="section" id="voies">
     <div class="titre-section">
-      <p class="rubrique"><span>04</span>Le Dossier Noir</p>
+      <p class="rubrique"><span>05</span>Le Dossier Noir</p>
       <h2>Trois preuves. Trois avenirs.<br>Lequel défendrez-vous ?</h2>
       <p class="texte">La première saison se termine sur un choix. Ce sont les joueurs qui le feront, en jeu.</p>
     </div>
@@ -207,10 +245,10 @@
     <p class="voie-resultat" id="resultat" aria-live="polite"></p>
   </section>
 
-  <!-- 5. Fin du dossier -->
+  <!-- 6. Fin du dossier -->
   <section class="section" id="rejoindre">
     <div class="fin">
-      <p class="rubrique"><span>05</span>Fin du dossier</p>
+      <p class="rubrique"><span>06</span>Fin du dossier</p>
       <h2>Votre histoire commence au sud du Mur.</h2>
       <ol class="etapes">
         <li><span>1</span>Rejoignez le Discord</li>

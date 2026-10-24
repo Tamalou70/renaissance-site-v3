@@ -61,9 +61,37 @@ document.querySelectorAll('[data-lien]').forEach(a => {
   barres.forEach((b, i) => b.style.setProperty('--i', i));
   doc.style.setProperty('--fin', `${barres.length * 0.45 + 0.9}s`);
   if (CAPTURE) { doc.classList.add('declassifie'); return; }
-  new IntersectionObserver(([e], obs) => {
-    if (e.isIntersecting) { doc.classList.add('declassifie'); obs.disconnect(); }
-  }, { threshold: 0.45 }).observe(doc);
+  // dès que le haut du rapport passe les deux tiers de l'écran (quelle que soit sa hauteur)
+  function verifier() {
+    if (doc.getBoundingClientRect().top < innerHeight * 0.65) {
+      doc.classList.add('declassifie');
+      removeEventListener('scroll', verifier);
+    }
+  }
+  addEventListener('scroll', verifier, { passive: true });
+  verifier();
+})();
+
+// ---------- La BD du lore, lue dans le site (plein écran) ----------
+(() => {
+  const lecteur = document.getElementById('lecteur'), cadre = document.getElementById('cadre-bd');
+  function ouvrir(planche) {
+    // sans numéro, la BD reprend là où le visiteur s'était arrêté (elle s'en souvient elle-même)
+    cadre.src = LIENS.bd + (planche ? `#page-${planche}` : '');
+    lecteur.showModal();
+    document.body.classList.add('lecture');
+    cadre.addEventListener('load', () => cadre.focus(), { once: true });
+  }
+  // nettoyage fait directement (l'événement « close » n'arrive pas dans tous les navigateurs)
+  function fermer() {
+    if (lecteur.open) lecteur.close();
+    cadre.src = 'about:blank'; // coupe les voix de la BD
+    document.body.classList.remove('lecture');
+  }
+  document.querySelectorAll('[data-planche]').forEach(b => b.addEventListener('click', () => ouvrir(b.dataset.planche)));
+  document.getElementById('fermer-lecteur').addEventListener('click', fermer);
+  lecteur.addEventListener('cancel', e => { e.preventDefault(); fermer(); }); // touche Échap
+  lecteur.addEventListener('close', fermer);
 })();
 
 // ---------- Poste radio ----------
